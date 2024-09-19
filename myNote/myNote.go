@@ -3,7 +3,7 @@ package main
 import "time"
 
 // myNote is a note that holds data in his content field. It has a title, some info
-// about when it was created and updated, and has a unique ID
+// about when it was created and updated, and has a unique ID to be able to search for it.
 type myNote struct {
 	Title   string
 	Content string
@@ -17,10 +17,15 @@ type Info struct {
 	UpdatedAt time.Time
 }
 
+// Container is a map of a pointer of a note that holds all the created notes with the value(the note) and key(ID)
+var Container = make(map[string]*myNote)
+
 // create is function that takes all the data to a note and creates a new one. It generates
 // the Created time and the ID fields for this new note. it returns an error message if
-// the creation has failed.
+// the creation has failed. It also puts the new note in our Container.
 func Create(*myNote) error {}
+
+/*
 
 // find is a funcion that takes an ID of a note and searches through the Note database.
 // it returns a boolean if it was found or not, and an error message if the ID was not found.
@@ -35,3 +40,6 @@ func Update(ID string) error {}
 // this note from the database. it returns an error message if it was not found or if
 // there was a problem by the deletion.
 func Delete(ID string) error {}
+
+
+*/
